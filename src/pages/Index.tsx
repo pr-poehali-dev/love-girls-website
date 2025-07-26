@@ -78,7 +78,7 @@ export default function Index() {
         <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
           <div className="animate-float mb-8">
             <h1 className="text-5xl md:text-7xl font-montserrat font-bold bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent mb-6">
-              Для моей любимой ✨
+              Для неотразимой Сешеньки ✨
             </h1>
           </div>
           <p className="text-xl text-gray-600 mb-8 animate-fade-in">
