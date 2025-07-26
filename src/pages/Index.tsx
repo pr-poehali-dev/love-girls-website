@@ -10,21 +10,24 @@ const romanticGames = [
     title: "Викторина о нас",
     description: "Проверим, как хорошо ты меня знаешь",
     icon: "Heart",
-    color: "bg-pink-100 text-pink-600"
+    color: "bg-pink-100 text-pink-600",
+    image: "https://cdn.poehali.dev/files/2da7d8ad-d661-4c12-8db6-dd271d7d3239.jpg"
   },
   {
     id: 2,
     title: "Загадки о любви",
     description: "Романтичные загадки для двоих",
     icon: "Puzzle",
-    color: "bg-rose-100 text-rose-600"
+    color: "bg-rose-100 text-rose-600",
+    image: "https://cdn.poehali.dev/files/eef5b22f-1aae-4b90-a496-fb593e7891a6.jpg"
   },
   {
     id: 3,
     title: "Наши воспоминания",
     description: "Игра на память о наших моментах",
     icon: "Camera",
-    color: "bg-purple-100 text-purple-600"
+    color: "bg-purple-100 text-purple-600",
+    image: "https://cdn.poehali.dev/files/85393b94-cdc0-42a7-9ea4-a8100c34142d.jpg"
   }
 ];
 
@@ -105,15 +108,23 @@ export default function Index() {
           {romanticGames.map((game) => (
             <Card 
               key={game.id} 
-              className={`cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
+              className={`cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden ${
                 selectedGame === game.id ? 'ring-2 ring-pink-300 shadow-lg' : ''
               }`}
               onClick={() => setSelectedGame(selectedGame === game.id ? null : game.id)}
             >
-              <CardHeader className="text-center">
-                <div className={`w-16 h-16 rounded-full ${game.color} flex items-center justify-center mx-auto mb-4`}>
-                  <Icon name={game.icon as any} size={28} />
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={game.image} 
+                  alt={game.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className={`absolute top-4 right-4 w-12 h-12 rounded-full ${game.color} flex items-center justify-center shadow-lg`}>
+                  <Icon name={game.icon as any} size={20} />
                 </div>
+              </div>
+              <CardHeader className="text-center">
                 <CardTitle className="font-montserrat text-xl">{game.title}</CardTitle>
                 <CardDescription>{game.description}</CardDescription>
               </CardHeader>
